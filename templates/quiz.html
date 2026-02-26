@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MBTI 测试</title>
+</head>
+<body>
+    <h1>MBTI 测试</h1>
+
+    <form method="post" action="/quiz">
+        {% for q in questions %}
+            <p>{{ q.question }}</p>
+            {% for option in q.options %}
+                <label>
+                    <input type="radio" name="q{{ q.index }}" value="{{ option.type }}" required>
+                    {{ option.text }}
+                </label><br>
+            {% endfor %}
+            <br>
+        {% endfor %}
+
+        <button type="submit">提交</button>
+    </form>
+
+</body>
+</html>
